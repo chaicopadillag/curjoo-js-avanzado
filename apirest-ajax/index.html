@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>API Rest Ajax</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="h1 text-center m-4">API Rest Ajax</h1>
+        <div class="row" id="nuevoArticulo">
+            <div class="col-8 offset-2">
+                <h2 class="h2 text-danger m-4" id="titulo_form">Creando Articulo</h2>
+                <form id="form_articulo">
+                    <div class="form-group">
+                        <input type="hidden" name="id" id="id">
+                        <label for="titulo">Titulo</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo">
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion">
+                    </div>
+                    <div class="form-group">
+                        <label for="palabras_claves">Palabras Claves</label>
+                        <input type="text" class="form-control" id="palabras_claves" name="palabras_claves">
+                    </div>
+                    <div class="form-group">
+                        <label for="ruta">Ruta</label>
+                        <input type="text" class="form-control" id="ruta" name="ruta">
+                    </div>
+                    <div class="form-group">
+                        <label for="img">img</label>
+                        <input type="text" class="form-control" id="img" name="img">
+                    </div>
+                    <div class="form-group">
+                        <label for="contenido">Contenido</label>
+                        <textarea class="form-control" name="contenido" id="contenido" rows="10"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <a href="#listaArticulos" class="btn btn-link btn-block">Ver artículos</a>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <h2 class="h2 text-danger m-4" id="listaArticulos">Lista de Articulos</h2>
+        <a href="#nuevoArticulo" class="btn btn-link">Crear artículo</a>
+        <div class="row" id="articles">
+        </div>
+    </div>
+    <template id="templete-articulo">
+        <div class="col-4 mb-3">
+            <div class="card">
+                <img src="" class="card-img-top img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title titulo">Card title</h5>
+                    <p class="card-text descripcion text-muted"></p>
+                    <p class="ruta"></p>
+                    <p class="palabras_claves"></p>
+                    <div class="card-text contenido d-none"></div>
+
+                    <a href="#" class="btn btn-primary leer">Leer más</a>
+                    <a href="#" class="btn btn-info editar">Editar</a>
+                    <a href="#" class="btn btn-danger eliminar">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="js/ajax_xmlhttprequest.js"></script>
+    <!-- <script src="js/ajax_fetch.js"></script> -->
+    <!-- <script src="http://curso-de-js.local/ajax/axios.min.js"></script>
+    <script src="js/ajax_axios.js"></script> -->
+</body>
+
+</html>

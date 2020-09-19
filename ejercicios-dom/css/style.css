@@ -1,0 +1,247 @@
+:root {
+  --color: #222;
+  --fondo: #efc20f;
+  --blanco: #fff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+.titulo {
+  background-color: var(--fondo);
+  text-align: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  color: var(--color);
+}
+.icon-menu {
+  display: inline-block;
+  position: fixed;
+  right: 1vw;
+  bottom: 1vh;
+  background-color: var(--fondo);
+  color: var(--color);
+  border-radius: 50%;
+  padding: 1rem 1.5rem;
+  line-height: 2rem;
+  cursor: pointer;
+  box-shadow: #282027 0px 0px 0px 2px;
+  z-index: 1000;
+}
+.icon-menu .icono {
+  font-size: 1.2rem;
+  display: inline-block;
+  height: 1.2rem;
+  transition: 0.4s ease all;
+}
+.nav {
+  width: 100%;
+  background-color: #204b6d;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: 0.4s ease all;
+  /* transform: translate(0, -100%); */
+  transform: translate(0, 100%);
+  z-index: 999;
+  overflow-y: auto;
+}
+.nav.active {
+  transform: translate(0, 0);
+}
+.nav .menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 100%;
+}
+.nav .menu .item_menu {
+  display: inline-block;
+  width: 100%;
+}
+.nav .menu .item_menu .link_menu {
+  display: inline-block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 2rem;
+  line-height: 1.5rem;
+  text-align: center;
+  transition: 0.4s ease all;
+}
+.nav .menu .item_menu .link_menu:hover {
+  background-color: var(--fondo);
+  color: var(--color);
+}
+section {
+  margin: 4rem 1rem;
+}
+section > h2,
+section > div {
+  padding: 1rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+section > p {
+  padding: 1rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+section > p.reloj {
+  font-size: 2rem;
+  font-weight: bold;
+}
+section > form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem;
+  margin: auto;
+  width: 45%;
+  justify-content: space-between;
+}
+section > form > input {
+  width: 100%;
+  margin: 1rem;
+}
+section > form > button {
+  width: 40%;
+  margin: 1rem;
+}
+.btn-grupo {
+  text-align: center;
+}
+.espacio {
+  width: 90%;
+  height: 50vh;
+  background-color: var(--color);
+  margin: auto;
+}
+.espacio .bola {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--fondo);
+  border-radius: 50%;
+  display: inline-block;
+}
+.boton_arriba {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  right: calc(4.25rem + 1vw);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--fondo);
+  color: var(--color);
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  transition: 0.4s ease all;
+}
+.boton_arriba:hover {
+  color: var(--fondo);
+  background-color: var(--color);
+}
+.boton_arriba.ocultar {
+  opacity: 0;
+  visibility: hidden;
+}
+.btn-theme {
+  display: inline-block;
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  left: 1vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 4rem;
+  font-weight: bold;
+  background-color: var(--fondo);
+  color: var(--color);
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  transition: 0.4s ease all;
+}
+.btn-theme:hover {
+  color: var(--fondo);
+  background-color: var(--color);
+}
+.theme-dark {
+  color: var(--fondo);
+  background-color: var(--color);
+}
+.enlinea,
+.sinconexion {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #00a82d;
+  color: var(--blanco);
+}
+.sinconexion {
+  background-color: #f34836;
+}
+@media screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 4rem auto;
+    grid-template-areas: "cabecera main";
+  }
+  main {
+    grid-area: main;
+  }
+  .cabecera {
+    grid-area: cabecera;
+  }
+  .secction {
+    min-height: 1024px;
+  }
+  footer {
+    display: none;
+  }
+  .cabecera .icon-menu {
+    display: none;
+  }
+  .nav {
+    top: 0;
+    width: 20%;
+    transform: translate(0, 0);
+    background-color: var(--color);
+    /* height: 100vh; */
+  }
+  .nav .menu .item_menu .link_menu {
+    text-align: left;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .nav .menu .item_menu .link_menu.active {
+    background-color: var(--fondo);
+    color: var(--color);
+  }
+  .boton_arriba {
+    right: 1rem;
+  }
+}

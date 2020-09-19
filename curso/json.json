@@ -1,0 +1,16 @@
+{
+    "nombre": "Gerardo",
+    "apellidos": "Chaico Padilla",
+    "correo": "code@gmail.com",
+    "edad": 20,
+    "estado_civil": true,
+    "peso": null,
+    "musica": ["Trance", "Techno", "Hardstyle", "Dance"],
+    "redes": {
+        "facebook": "https://facebook.com",
+        "twtter": "https://twtter.com",
+        "instagram": "https://instagram.com",
+        "tiktok": "https://tiktok.com",
+        "tumblr": "https://tumblr.com"
+    }
+}
