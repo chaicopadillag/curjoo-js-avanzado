@@ -3,8 +3,10 @@
     $template = d.getElementById("templete-articulo").content,
     $fragmento = d.createDocumentFragment(),
     $form = d.getElementById("form_articulo");
-  const Ajax_xhr = (options = { url, method, success, error, data }) => {
-    let { url, method, success, error, data } = options;
+  const Ajax_xhr = (
+    options = { url, method, ApiKey, success, error, data }
+  ) => {
+    let { url, method, ApiKey, success, error, data } = options;
     const xhr = new XMLHttpRequest();
     xhr.addEventListener("readystatechange", (e) => {
       if (xhr.readyState !== 4) return;
@@ -18,12 +20,17 @@
       }
     });
     xhr.open(method || "GET", url);
-    // xhr.setRequestHeader('Content-Type','application/json; charset=utf-8');
+    xhr.setRequestHeader("Authorization", ApiKey);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    xhr.mode = "CORS";
     xhr.send(data);
   };
   const obtenerArticulos = () => {
     Ajax_xhr({
-      url: "http://curso-de-js.local/apirest-ajax/json/db.json",
+      url: "http://apirest-native-php.local/articulos",
+      method: "GET",
+      ApiKey:
+        "Basic UjJhUjA3Umtqazh1aDgyNThmZHNrRU9JRU4yNXU4bERCYkhGTWVmbTdoVno2L0xYYjlkZkU0Rm1xYThxOlQyYVQwN1Rrams4dWg4MjU4ZmRza0VPSUVOMjV1ai9IWXg0RUNZbVNOMHZLdHNRMVdsVENPQ2RQby9zUw==",
       success(objetoJSON) {
         objetoJSON.articulos.forEach((art) => {
           $template.querySelector(".titulo").textContent = art.titulo;

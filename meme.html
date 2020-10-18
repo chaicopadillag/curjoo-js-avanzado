@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi Novia?</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .btn,
+        .alerta {
+            transition: all .6s ease;
+        }
+
+        .jumbotron {
+            height: 98Vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class=" container-fluid pt-2">
+        <div class="jumbotron">
+            <h1 class="display-4 text-center">¿Quieres ser mi Novia?</h1>
+            <p class="lead text-center text-secondary">Acepta ser mi novia y seamos felices!!!!</p>
+            <hr class="my-4">
+            <p class="text-center text-muted">Dejate de guiar por el Cupido Puntero</p>
+            <div class="row">
+                <div class="col-6">
+                    <a class="btn btn-primary btn-lg float-right" href="#" role="button">Si</a>
+                </div>
+                <div class="col-6">
+                    <a class="btn btn-danger btn-lg" href="#" role="button">No</a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-8 offset-2 alerta">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        ((c, d, w) => {
+            const $btnSi = d.querySelector('.btn-primary'),
+                $btnNo = d.querySelector('.btn-danger');
+            d.addEventListener('mouseover', e => {
+
+                if (e.target === $btnSi) {
+                    if ($btnSi.classList.contains('btn-danger')) {
+                        $btnNo.textContent = 'No';
+                        $btnNo.classList.remove('btn-primary');
+                        $btnNo.classList.add('btn-danger');
+                        $btnSi.classList.remove('btn-danger');
+                        $btnSi.classList.add('btn-primary');
+                        $btnSi.textContent = 'Si';
+                    }
+                }
+
+                if (e.target === $btnNo) {
+                    $btnNo.textContent = 'Si';
+                    $btnNo.classList.remove('btn-danger');
+                    $btnNo.classList.add('btn-primary');
+                    $btnSi.classList.remove('btn-primary');
+                    $btnSi.classList.add('btn-danger');
+                    $btnSi.textContent = 'No';
+                }
+            });
+            d.addEventListener('click', e => {
+
+                if (e.target === $btnSi) {
+                    e.preventDefault();
+                    if ($btnSi.classList.contains('btn-primary')) {
+                        d.querySelector('.alerta').innerHTML = `<div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading text-center">Muy Bien!!!</h4>
+                        <p class="text-center">Has tomado la mejor decision de tu vida. Ama y sé felíz!!!</p>
+                        <hr>
+                        <p class="mb-0 text-center">¡Felicidades!</p>
+                    </div>`;
+                    }
+                }
+
+                if (e.target === $btnNo) {
+                    e.preventDefault();
+                    if ($btnNo.classList.contains('btn-primary')) {
+                        d.querySelector('.alerta').innerHTML = `<div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading text-center">Muy Bien!!!</h4>
+                        <p class="text-center">Has tomado la mejor decision de tu vida.  Ama y sé felíz!!!</p>
+                        <hr>
+                        <p class="mb-0 text-center">¡Felicidades!</p>
+                    </div>`;
+                    }
+                }
+            });
+        })(console, document, window);
+    </script>
+</body>
+
+</html>

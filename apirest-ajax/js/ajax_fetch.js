@@ -5,12 +5,40 @@
     $form = d.getElementById("form_articulo");
 
   const obtenerArticulos = async () => {
+    let cabecera = new Headers();
+    cabecera.append(
+      "Authorization",
+      "Basic UjJhUjA3Umtqazh1aDgyNThmZHNrRU9JRU4yNXU4bERCYkhGTWVmbTdoVno2L0xYYjlkZkU0Rm1xYThxOlQyYVQwN1Rrams4dWg4MjU4ZmRza0VPSUVOMjV1ai9IWXg0RUNZbVNOMHZLdHNRMVdsVENPQ2RQby9zUw=="
+    );
+    cabecera.append("Content-Type", "application/json");
+    cabecera.append("Accept", "application/json");
+    cabecera.append("Access-Control-Allow-Origin", "*");
+    // cabecera.append("Access-Control-Allow-Origin", "GET, OPTIONS");
+    cabecera.append("Access-Control-Allow-Credentials", "true");
+
     try {
-      const respuesta = await fetch(
-          "http://curso-de-js.local/apirest-ajax/json/db.json"
-          //   "http://apirest-native-php.local/articulos/"
+      const options = {
+          method: "GET",
+          mode: "cors",
+          credentials: "include",
+          // headers: cabecera,
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Basic UjJhUjA3Umtqazh1aDgyNThmZHNrRU9JRU4yNXU4bERCYkhGTWVmbTdoVno2L0xYYjlkZkU0Rm1xYThxOlQyYVQwN1Rrams4dWg4MjU4ZmRza0VPSUVOMjV1ai9IWXg0RUNZbVNOMHZLdHNRMVdsVENPQ2RQby9zUw==",
+          },
+          ridirect: "follow",
+          referrerPolicy: "no-referrer",
+        },
+        respuesta = await fetch(
+          "http://apirest-native-php.local/articulos",
+          // "http://curso-de-js.local/apirest-ajax/json/db.json",
+
+          options
         ),
         json = await respuesta.json();
+      c.log(json);
+      c.log(respuesta.ok);
       if (!respuesta.ok) {
         throw {
           codigo: respuesta.status,

@@ -356,10 +356,10 @@
     const success = (position) => {
       let cord = position.coords;
       $geoloca.innerHTML = `<b>Su posicion actual es:</b><br>
-            <b>Latitud:</b>${cord.latitude}<br>
-            <b>Longitud:</b>${cord.longitude}<br>
-            <b>Presición:</b>${cord.accuracy} metros<br>
-            <a href="https://google.com/maps/@${cord.latitude},${cord.longitude},16z" target="_blank" rel="noopener">Ver en google maps</a>`;
+<b>Latitud:</b>${cord.latitude}<br>
+<b>Longitud:</b>${cord.longitude}<br>
+<b>Presición:</b>${cord.accuracy} metros<br>
+<a href="https://google.com/maps/@${cord.latitude},${cord.longitude},16z" target="_blank" rel="noopener">Ver en google maps</a>`;
     };
     const error = (error) => {
       $geoloca.innerHTML = `<b>Error ${error.code}: ${error.message}</b>`;
@@ -397,7 +397,6 @@
     const $slides = d.querySelectorAll(".carousel-item"),
       $btnNext = d.querySelector(".carousel-control-next"),
       $btnPrev = d.querySelector(".carousel-control-prev");
-
     if (e.target === $btnPrev) {
       e.preventDefault();
       $slides[active].classList.remove("active");
@@ -475,7 +474,9 @@
         });
       });
     };
-    const spia = new IntersectionObserver(callback, { threshold: [0.5, 0.75] });
+    const spia = new IntersectionObserver(callback, {
+      threshold: [0.5, 0.75],
+    });
     $videos.forEach((el) => spia.observe(el));
   };
   VideoAutoPlayDetected();
@@ -485,18 +486,15 @@
       $inputs = d.querySelectorAll("#form_contacto [required]");
     $inputs.forEach((input) => {
       let $span_danger = d.createElement("span");
-
       $span_danger.classList.add("text-danger", "d-none");
       $span_danger.setAttribute("id", `error_${input.name}`);
       $span_danger.textContent = input.title;
       input.insertAdjacentElement("afterend", $span_danger);
     });
-
     d.addEventListener("keyup", (e) => {
       if (e.target.matches("#form_contacto [required]")) {
         let $campo = e.target,
           patron = $campo.pattern || $campo.dataset.pattern;
-
         if (patron && $campo.value !== "") {
           let expresionReg = new RegExp(patron);
           if (expresionReg.exec($campo.value)) {
